@@ -17,6 +17,7 @@
     
     "scripts": {
       "post-install-cmd": [
+        "php composer.phar install",
         "php bin/paratest ../../my_test_etna.php &> deploy-build.log"
     ]
   },
