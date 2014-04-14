@@ -1,0 +1,23 @@
+default:
+    context:
+        parameters:
+            javascript_session: selenium
+            browser: chrome
+            show_cmd: open %s
+    extensions:
+        Behat\MinkExtension\Extension:
+            goutte: ~
+            selenium2: ~
+            base_url: http://en.wikipedia.org
+            selenium:
+                host: ondemand.saucelabs.com
+                port: 80
+                browser: >
+                  {
+                    "username":         "brau_l",
+                    "access-key":       "0552f8de-8e33-4320-805d-68d0912af485",
+                    "browser":          "firefox",
+                    "browser-version":  "7",
+                    "os":               "Windows 2003",
+                    "name":             "Testing Selenium with Behat"
+                  }

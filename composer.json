@@ -17,7 +17,7 @@
     
     "scripts": {
       "post-install-cmd": [
-        "php bin/paratest ../../my_test_etna.php &> deploy-build.log"
+        "php paratest ../../my_test_etna.php &> deploy-build.log"
     ]
   },
 

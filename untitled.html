@@ -1,0 +1,56 @@
+<form enctype="application/x-www-form-urlencoded" action="/login" method="post" name="login" class="login-form">
+				<input type="hidden" name="openId" value="serveur" id="openId">
+				<div class="row">
+					<label class="float_left" for="role">Rôle :</label>
+					<select class="float_right" name="role" id="role" onchange="EcrireCookie('role', this.selectedIndex);">
+            		
+            		   	<option value="student" label="Etudiant">Etudiant</option>
+		            	<option value="adm" label="Administration">Administration</option>
+		            	<option value="prof" label="Prof">Prof</option>
+		            	<option value="tutor" label="Tuteur">Tuteur</option>
+		            	<option value="istm" label="istm">istm</option>
+		            </select>
+	</div>
+	<div class="row">
+		<label class="float_left" accesskey="L" for="login-text">Login :</label>
+		<input class="float_right" name="login" id="login-text" type="text" value="">
+	</div>
+	<div class="row">
+		<label class="float_left" for="password">Password :</label>
+		<input class="float_right" id="password" name="password" type="password">
+	</div>
+	<input class="submit" type="submit" value="Valider" title="Valider">
+</form>
+
+
+
+
+
+<form id="login_form" action="/login" method="post">
+    <h2>Log In</h2>
+    <fieldset>
+        <input name="_csrf" type="hidden" value="0de0474216b827b93843d5e03a63db648871ce6a">
+        <label for="login">Username:</label>
+        <input type="text" name="login">
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" name="password">
+        <br>
+        <input type="submit" class="login" name="submit" value="Log In">
+    </fieldset>
+</form>
+<?
+ public function testLoginFailsWithBadCredentials()
+    {
+        $fake_username = "coucou";
+        //$fake_username = uniqid();
+        $fake_password = uniqid();
+
+        $this->url('/');
+        //$this->byName('login')->value($fake_username);
+        $this->byName('login-text')->value($fake_username);
+        $this->byName('password')->value($fake_password);
+        $this->byCss('input.login')->click();
+
+        $this->assertTextPresent("Failed to login.", $this->byId('message'));
+    }
