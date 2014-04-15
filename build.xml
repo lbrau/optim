@@ -127,17 +127,6 @@
     </exec>
   </target>
 
-  <target name="phpcb" description="Aggregate tool output with PHP_CodeBrowser">
-    <exec executable="phpcb">
-      <arg value="--log" />
-      <arg path="${builddir}/logs" />
-      <arg value="--source" />
-      <arg path="${sourcedir}" />
-      <arg value="--output" />
-      <arg path="${builddir}/code-browser" />
-    </exec>
-  </target>
-
   <target name="vendors" description="Update vendors">
     <exec executable="php" failonerror="true">
         <arg value="composer.phar" />
@@ -145,11 +134,5 @@
     </exec>
   </target>
 
-  <target name="parameters" description="Copy parameters">
-    <exec executable="cp" failonerror="true">
-      <arg path="app/config/parameters.jenkins.yml" />
-      <arg path="app/config/parameters.yml" />
-    </exec>
-  </target>
 
 </project>
