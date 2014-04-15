@@ -11,7 +11,7 @@
 
   <target name="build-parallel" depends="prepare,lint,tools-parallel,phpunit,phpcb"/>
 
-  <target name="vendors" description="Update vendors">
+  <target name="vendors" description="install vendors">
     <exec executable="php" failonerror="true">
         <arg value="composer.phar" />
         <arg value="install" />
